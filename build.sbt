@@ -15,10 +15,10 @@ ThisBuild / scalacOptions ++=
     "-Ysafe-init", // experimental (I've seen it cause issues with circe)
   ) ++ Seq("-rewrite", "-indent") ++ Seq("-source", "future")
 
-lazy val `playground` =
+lazy val `audio-write` =
   project
     .in(file("."))
-    .settings(name := "playground")
+    .settings(name := "audio-write")
     .settings(commonSettings)
     .settings(dependencies)
 

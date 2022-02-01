@@ -1,5 +1,4 @@
 package org.grauulzz
-package playground
 
 @main def Main(args: String*): Unit =
     println(Console.GREEN)

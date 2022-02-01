@@ -1,5 +1,4 @@
 package org.grauulzz
-package playground
 
 import scala.language.adhocExtensions
 

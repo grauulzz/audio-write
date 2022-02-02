@@ -1,6 +1,5 @@
 package org.grauulzz.playground
 
-
 import de.sciss.osc
 import de.sciss.synth.*
 import de.sciss.synth.ugen.*
@@ -18,7 +17,7 @@ import Ops.*
         s.dumpOSC()
         play {
             val f = LFSaw.kr(0.4).mulAdd(24, LFSaw.kr(Seq(8, 7.23)).mulAdd(3, 80)).midiCps
-            CombN.ar(SinOsc.ar(f) * 0.04, 0.2, 0.2, 4)
+            CombN.ar(SinOsc.ar(f) * 0.04, 5, 0.2, 4)
         }
     }
 }

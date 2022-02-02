@@ -37,8 +37,8 @@ lazy val commonScalacOptions = Seq(
 
 lazy val dependencies = Seq(
   libraryDependencies ++= Seq(
-    "de.sciss" %% "scalacollider" % "2.7.3"
-    // main dependencies
+    "de.sciss" %% "scalacollider" % "2.7.4",
+    "de.sciss" %% "scalacolliderswing" % "2.9.2"
   ),
   libraryDependencies ++= Seq(
     org.scalatest.scalatest,

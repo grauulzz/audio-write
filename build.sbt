@@ -13,7 +13,7 @@ ThisBuild / scalacOptions ++=
     "-Yexplicit-nulls", // experimental (I've seen it cause issues with circe)
     "-Ykind-projector",
     "-Ysafe-init", // experimental (I've seen it cause issues with circe)
-  ) ++ Seq("-rewrite", "-indent") ++ Seq("-source", "future")
+  ) ++ Seq("-old-syntax", "-rewrite") ++ Seq("-source", "future")
 
 lazy val `audio-write` =
   project
@@ -37,6 +37,7 @@ lazy val commonScalacOptions = Seq(
 
 lazy val dependencies = Seq(
   libraryDependencies ++= Seq(
+    "de.sciss" %% "scalacollider" % "2.7.3"
     // main dependencies
   ),
   libraryDependencies ++= Seq(

@@ -1,30 +1,22 @@
 package org.grauulzz
 
-@main def Main(args: String*): Unit =
+import de.sciss.synth.*
+
+import ugen.*
+import Import.*
+import Ops.*
+
+@main def Main(args: String*): Unit = {
     println(Console.GREEN)
 
-        object Calculator:
-        // instance variable
-        private var _calculatorsCreated: Int = 0
-        // getter
-        def calculatorsCreated: Int = _calculatorsCreated
-        // setter
-        private def calculatorsCreated_=(newValue: Int) =
-        _calculatorsCreated = newValue
-        
-    class Calculator(a: Int = 0):
-        // counter for how many instances created
-        Calculator.calculatorsCreated += 1
-        def add(b: Int): Int =
-        a + b
-        def sub(b: Int): Int = 
-        a - b  
+    val cfg = Server.Config()
+    cfg.program = "/mnt/c/Program Files/SuperCollider-3.12.2/scsynth.exe"
 
-    val c1 = Calculator(1)
-    val c2 = Calculator(1)
-    
-    println(c1.sub(1))
-
-    println(Calculator.calculatorsCreated)    
-    
-    println(Console.RESET)
+    Server.run(cfg) { s =>
+        s.dumpOSC()
+        play {
+            val f = LFSaw.kr(0.4).mulAdd(24, LFSaw.kr(Seq(8, 7.23)).mulAdd(3, 80)).midiCps
+            CombN.ar(SinOsc.ar(f) * 0.04, 0.2, 0.2, 4)
+        }
+    }
+}

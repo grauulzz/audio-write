@@ -6,6 +6,5 @@
 .metals/
 .scala/
 .vscode/
-*.worksheet.sc
 metals.sbt
 target/

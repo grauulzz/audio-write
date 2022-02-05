@@ -3,13 +3,17 @@ import de.sciss.synth.Server
 
 object Main extends App {
 
-  val sc = new ScalaCollider
+  @main def run(): Unit = {
 
-  val cfg: Server.ConfigBuilder = Server.Config()
-  cfg.program = "C:\\Program Files\\SuperCollider-3.12.2\\scsynth.exe"
+    val sc = new ScalaCollider
 
-  Server.run(cfg) { s =>
-    s.dumpOSC() //dumps readable info to console
-    sc.loFiMiningInSpace()
+    val cfg: Server.ConfigBuilder = Server.Config()
+    cfg.program = "C:\\Program Files\\SuperCollider-3.12.2\\scsynth.exe"
+
+    Server.run(cfg) { s =>
+      s.dumpOSC() //dumps readable info to console
+      sc.loFiMiningInSpace()
+    }
   }
+
 }

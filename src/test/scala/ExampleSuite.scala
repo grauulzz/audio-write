@@ -1,6 +1,4 @@
-package org.grauulzz.playground
-
-import org.grauulzz.playground.TestSuite
+package org.grauulzz
 
 final class ExampleSuite extends TestSuite {
   test("hello world") {

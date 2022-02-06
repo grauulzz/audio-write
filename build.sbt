@@ -3,6 +3,9 @@ import Dependencies._
 ThisBuild / organization := "org.grauulzz"
 ThisBuild / scalaVersion := "3.1.0"
 
+Test / compileOrder := CompileOrder.Mixed
+Compile / compileOrder := CompileOrder.JavaThenScala
+
 ThisBuild / scalacOptions ++=
   Seq(
     "-deprecation",
@@ -14,6 +17,12 @@ ThisBuild / scalacOptions ++=
     "-Ykind-projector",
     "-Ysafe-init", // experimental (I've seen it cause issues with circe)
   ) ++ Seq("-old-syntax", "-rewrite") ++ Seq("-source", "future")
+
+ThisBuild / javacOptions ++=
+  Seq(
+    "-source",  // Known issues in mixed mode compilation: https://www.scala-sbt.org/1.x/docs/Java-Sources.html
+    "11"
+  )
 
 lazy val `audio-write` =
   project

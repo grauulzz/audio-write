@@ -39,6 +39,16 @@ class ScalaCollider {
     }
     x0.onGo(spaceMining())
   }
+
+  def synthSelect(scalaCollider: String): Unit = {
+    scalaCollider match {
+      case "analogBubbles" => analogBubbles()
+      case "spaceMining" => spaceMining()
+      case "loFiMining" => loFiMining()
+      case "loFiMiningInSpace" => loFiMiningInSpace()
+      case _ => throw new Exception("Unknown synth")
+    }
+  }
 }
 
 

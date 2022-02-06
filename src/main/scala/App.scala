@@ -2,32 +2,23 @@ import de.sciss.synth.Server
 
 object App {
 
-  val java = new JavaApp()
+  val sc = new ScalaCollider
 
-  @main def run(): Unit = {
+  val cfg: Server.ConfigBuilder = Server.Config()
+  cfg.program = "C:\\Program Files\\SuperCollider-3.12.2\\scsynth.exe"
 
-    println(s"${Console.CYAN} ${java.getSomethingFromJavaApp}! ${Console.RESET}")
-
-    val sc = new ScalaCollider
-
-    val cfg: Server.ConfigBuilder = Server.Config()
-    cfg.program = "C:\\Program Files\\SuperCollider-3.12.2\\scsynth.exe"
-
+  def startServer(synth: String): Unit = {
     Server.run(cfg) { s =>
-
-      println(s"${Console.BLUE} output from Scala app!")
-
+      println(s"${Console.BLUE} server running...")
       s.dumpOSC()
-
-      sc.loFiMiningInSpace()
-
+      sc.synthSelect(synth)
+      println(Console.RESET)
     }
+  }
 
-    println(Console.RESET)
-
+  @main def main(): Unit = {
+    startServer("analogBubbles")
   }
 
 }
 
-
-// println(s"${Console.CYAN} calling scala code from project... ${sc.getSomethingFromScalaCollider}! ${Console.RESET}")

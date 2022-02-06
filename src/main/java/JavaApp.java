@@ -1,6 +1,8 @@
-public class JavaApp {
 
-  public static void main(String[] args) {
-    System.out.println("java main");
+public class JavaApp {
+  
+  String getSomethingFromJavaApp() {
+    return "output from Java app";
   }
+  
 }

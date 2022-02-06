@@ -17,7 +17,7 @@ object App {
   }
 
   @main def main(): Unit = {
-    startServer("analogBubbles")
+    startServer("analogBubblesModulation")
   }
 
 }

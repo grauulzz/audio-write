@@ -4,7 +4,7 @@ ThisBuild / organization := "org.grauulzz"
 ThisBuild / scalaVersion := "3.1.0"
 
 Test / compileOrder := CompileOrder.Mixed
-Compile / compileOrder := CompileOrder.JavaThenScala
+Compile / compileOrder := CompileOrder.Mixed
 
 ThisBuild / scalacOptions ++=
   Seq(

@@ -12,14 +12,14 @@ object App {
     Server.run(cfg) { s =>
       println(s"${Console.BLUE} server running...")
       s.dumpOSC()
-      sc.synthSelect(synth)
+      sc.selectScalaColliderPreset(synth)
       s.freeAll()
       println(Console.RESET)
     }
   }
 
   @main def main(): Unit = {
-    startServer("analogBubblesModulation")
+    startServer("reverberatedSinePercussion")
   }
 
 }

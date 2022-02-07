@@ -1,4 +1,5 @@
 import de.sciss.synth.Server
+import de.sciss.synth.Ops.*
 
 object App {
 
@@ -12,6 +13,7 @@ object App {
       println(s"${Console.BLUE} server running...")
       s.dumpOSC()
       sc.synthSelect(synth)
+      s.freeAll()
       println(Console.RESET)
     }
   }
